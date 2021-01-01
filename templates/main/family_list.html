@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    All Family's
+{% endblock %}
+{% block content %}
+    <h1>Family's List</h1>
+    {% if family_list %}
+        <ul>
+        {% for family in family_list %}
+            <li class="my-3">
+                <a href="{{ family.get_absolute_url }}">{{ family.Full_Name }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no family's in the database.</p>
+    {% endif %}
+{% endblock %}

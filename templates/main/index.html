@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    {{ title }}
+{% endblock %}
+{% block content %}
+    <div class="jumbotron m-0 py-4" style="background-color: rgba(0,0,0,0.5) !important;">
+       <article = "container" style = "margin :5px"> <h1 class="display-4"style= "display : flex;background-color:rgpa(0,0,0.2,0.5)">Hello, Our people!</h1>
+        <p class="lead" style= "display : flex;background-color:rgpa(0,0,0.2,0.5)">Welcome to Resistance Committees System, a website developed by Sudani Coder  </p>
+        <hr class="my-4">
+        <img src = "{%static 'img/180678.jpg '%}" width = "80%">
+        <h2>Dynamic content</h2>
+        <p>The System has the following record counts:</p>
+        <ul>
+            <li><strong>Area's:</strong> {{ num_areas }}</li>
+            <li><strong>Family's:</strong> {{ num_familys }}</li>
+            <li><strong>Project's:</strong>
+                <ul>
+                    <li>All Projects: {{ num_projects }}</li>
+                    <li>Completed Projects: {{ num_projects_completed }}</li>
+                    <li>Not Completed Projects: {{ num_projects_not_completed }}</li>
+                </ul>
+            </li>
+            <li><strong>Task's:</strong>
+                <ul>
+                    <li>All Tasks: {{ num_tasks }}</li>
+                    <li>Completed Tasks: {{ num_tasks_completed }}</li>
+                    <li>Not Completed Tasks: {{ num_tasks_not_completed }}</li>
+                </ul>
+            </li>
+        </ul>
+        <p class="lead">You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+             
+        <div class="row"style="rgpa(0,0,0.2,0.5">
+            {% for project in projects %}
+                <div class="col-md">
+                    <div class="card shadow" style="width: 15rem;">
+                        <img class="card-img-top" src="{{ project.image_url }}" alt="{{ project.Title }}" title="{{ project.Title }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ project.Title }}</h5>
+                            <small class="text-muted">{{ project.Created|date:"F d, Y" }}</small>
+                            <p class="card-text">{{ project.Description|slice:50 }}</p>
+                            <a href="{{project.get_absolute_url}}" class="btn btn-primary">اقراء المزيد</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{%endblock %}
+ 
+
+ 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+{% e
